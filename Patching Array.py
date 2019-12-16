@@ -16,9 +16,7 @@ Example 2:
 nums = [1, 5, 10], n = 20
 Return 2.
 The two patches can be [2, 4].
-1,5,6,10,11,15,16
-+ 2
-=> 1,2,3,5,6,7,10,11,12,13,15,16,17,18
+
 Example 3:
 nums = [1, 2, 2], n = 5
 Return 0.
@@ -27,6 +25,13 @@ from typing import List
 
 
 class SolutionV1:
+    """
+    Find the sum combinations, and insert the missing ones, e.g., for nums = [1, 5, 10], n = 20:
+    the sum combination is: {1,5,6,10,11,15,16}
+    '2' is missing, so add '2'
+    => {1,2,3,5,6,7,10,11,12,13,15,16,17,18}
+    '4' is missing, add '4' and so on
+    """
     def minPatches(self, nums: List[int], n: int) -> int:
         if not nums:
             nums = [1]
@@ -64,5 +69,15 @@ class SolutionV1:
         return result
 
 
+class SolutionV2:
+    """
+    Based on V1, for nums = [1, 5, 10], n = 30, assume we have found the result of nums = [1, 5, 10], n = 22, and the
+    patch number is [2, 4], then we add/patch '23', we will get the sum range 1 ~ 22+23=45,i.e. the sum range is doubled
+    and plus one, the problem becomes we need to find the minimal sum range which can cover range(1, n)
+    """
+    def minPatches(self, nums: List[int], n: int) -> int:
+        pass
+
+
 if __name__ == '__main__':
-    print(Solution().minPatches([1, 2, 31, 33], 2147483647))
+    print(SolutionV1().minPatches([1, 2, 31, 33], 2147483647))
