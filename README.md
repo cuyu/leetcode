@@ -1,5 +1,6 @@
 ## Need to solve
 
-### Need performance optimized
+### Need performance tuning
 
 - Patching Array
+- Course Schedule
