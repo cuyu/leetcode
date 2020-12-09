@@ -1,9 +1,12 @@
+from typing import Union
+
+
 class LinkedNode:
     def __init__(self, key: int, value: int) -> None:
         self.value = value
         self.key = key
-        self.previous = None
-        self.next = None
+        self.previous: Union[None, LinkedNode] = None
+        self.next: Union[None, LinkedNode] = None
 
 
 class LRUCache:
